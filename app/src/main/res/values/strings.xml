@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">currency-convert</string>
+    <string name="default_loading_message">Loading..</string>
+    <string name="ok">Ok</string>
+    <string name="flag">_flag</string>
+    <string name="cannot_poll_now_error">Cannot Poll from the service now. Please check to ensure you are connected to the internet.</string>
+</resources>

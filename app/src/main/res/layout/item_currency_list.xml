@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.johnohue.currencyconvert.utils.CurrencyRateValueConverter" />
+        <import type="com.johnohue.currencyconvert.utils.MiscUtils"/>
+
+        <variable
+            name="currencyRateItem"
+            type="com.johnohue.currencyconvert.models.CurrencyRateItem" />
+
+        <variable
+            name="viewModel"
+            type="com.johnohue.currencyconvert.list.CurrencyListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onItemClicked(currencyRateItem)}">
+
+        <ImageView
+            android:id="@+id/currency_flag"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/currency_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@{currencyRateItem.name}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/currency_flag"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="GBP" />
+
+        <TextView
+            android:id="@+id/currency_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/currency_flag"
+            app:layout_constraintTop_toBottomOf="@+id/currency_short"
+            tools:text="Pounds" />
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:onClick="@{() -> viewModel.onItemClicked(currencyRateItem)}"
+            android:text="@{CurrencyRateValueConverter.doubleToString(currencyRateItem.value)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
