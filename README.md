@@ -4,7 +4,7 @@ This is an  application helps to see the current value of major currencies aroun
 This application is built with MVVM and the repository pattern and also is a basic RXJava starter project,
 
   
-## WHat it looks like  
+## What it looks like  
   
 <p align="center">  
 <img src="documentation/currency-convert.gif" height="700" />  
